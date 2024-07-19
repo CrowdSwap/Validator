@@ -109,7 +109,7 @@ ask_for_sudo() {
 }
 
 check_dependency() {
-    local dependencies=("tar" "git")
+    local dependencies=("tar" "git" "curl")
     for cmd in "${dependencies[@]}"; do
         if ! command -v "$cmd" &> /dev/null; then
             echo "Error: $cmd is not installed. Please install $cmd and try again."
