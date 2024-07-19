@@ -2,6 +2,9 @@
 # shellcheck disable=SC2034
 
 crowdswapd_binary="crosschaind"
+CHAIN_ID="crowdswap-1"
+# Store the original user's username
+ORIGINAL_USER=${USER}
 
 check_binary_installed() {
   if ! which "$crowdswapd_binary" > /dev/null 2>&1; then
@@ -22,17 +25,10 @@ if ! env | grep -q '^KEYRING_PASSWORD='; then
   die "Error: KEYRING_PASSWORD not found as environment variable."
 fi
 
-if ! env | grep -q '^CHAIN_ID='; then
-  die "Error: CHAIN_ID not found as environment variable."
-fi
-
 if ! env | grep -q '^VALIDATOR_OPERATOR_ADDRESS='; then
   die "Error: VALIDATOR_OPERATOR_ADDRESS not found as environment variable."
 fi
 
-
-# Store the original user's username
-ORIGINAL_USER=${USER}
 
 ask_for_sudo
 
