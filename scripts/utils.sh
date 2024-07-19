@@ -76,7 +76,7 @@ copy_configuration_files() {
         # We remove the config.toml.bak (created because on Mac you have to create backup file with sed)
         rm "${config_directory}/config.toml.bak"
 
-        sed -i.bak 's/external_address = \"\"/external_address = \"'"$(curl -4 ifconfig.co)"':26656\"/g' "${config_directory}/config.toml"
+        sed -i.bak 's/external_address = \"\"/external_address = \"'"$(curl -4 -s https://ipinfo.io/ip)"':26656\"/g' "${config_directory}/config.toml"
         rm "${config_directory}/config.toml.bak"
 
     else
