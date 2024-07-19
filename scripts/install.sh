@@ -77,7 +77,7 @@ parse_params() {
     logs_directory="$root_directory/logs"
     config_directory="$root_directory/config"
     resources="${git_root}/resources"
-    crowdswapd_binary="crosschaind"
+    crowdswapd_binary="crowdswapd"
     crowdswapd_binary_signature_path="$bin_directory/crowdswapd-${crowdswap_version}.asc"
     crowdswapd_binary_path="$bin_directory/crowdswapd-${crowdswap_version}"
     crowdswapd_binary_symlink="$bin_directory/crowdswapd"

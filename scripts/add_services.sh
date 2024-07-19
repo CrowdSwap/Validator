@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2034
 
-crowdswapd_binary="crosschaind"
+crowdswapd_binary="crowdswapd"
 CHAIN_ID="crowdswap-1"
 # Store the original user's username
 ORIGINAL_USER=${USER}
