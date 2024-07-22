@@ -121,7 +121,7 @@ download_dependencies() {
     msg "\ndownloading required dependencies"
     
     # Define the artifact name to download
-    crowdswapd_artifact="crosschain_linux_amd64.tar.gz"
+    crowdswapd_artifact="crowdswap_linux_amd64.tar.gz"
     msg "downloading $crowdswapd_binary binary $crowdswap_version"
     if [[ ! -f "${crowdswapd_binary_path}" ]]; then
         local crowdswapd_binary_url
