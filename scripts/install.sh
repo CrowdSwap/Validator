@@ -158,6 +158,11 @@ download_dependencies() {
     ln -s "${tofnd_binary_path}" "${tofnd_binary_symlink}"
 }
 
+addlinks() { 
+    sudo ln -s $crowdswapd_binary_symlink /usr/local/bin/crowdswapd 
+    sudo ln -s $tofnd_binary_symlink /usr/local/bin/tofnd
+}
+
 check_environment() {
     if [ "$(pgrep -f "${tofnd_binary_path}")" != "" ]; then
         # shellcheck disable=SC2016
@@ -214,5 +219,9 @@ create_directories
 copy_configuration_files
 
 download_dependencies # download dependencies specific to mode
+
+ask_for_sudo
+
+addlinks
 
 post_run_message # print message post run
