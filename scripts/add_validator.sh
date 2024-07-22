@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2034
+# shellcheck disable=SC2162
 
 set -Eeuo pipefail
 
@@ -22,14 +23,13 @@ fi
 read -p "Enter the staking amount: " STAKING_AMOUNT
 read -p "Enter your email address: " YOUR_EMAIL_ADDRESS
 read -p "Enter your website: " YOUR_WEBSITE
-read -p "Enter more details: " MORE_DETAIL
+read -p "Enter more details about yourself: " MORE_DETAIL
 
 # Assign the input values to variables
 AMOUNT=$STAKING_AMOUNT
 EMAIL=$YOUR_EMAIL_ADDRESS
 WEBSITE=$YOUR_WEBSITE
 DETAILS=$MORE_DETAIL
-
 
 JSON=$(cat <<EOF
 {
@@ -41,7 +41,6 @@ JSON=$(cat <<EOF
 EOF
 )
 
-# Output the JSON object (optional)
 echo "$JSON"
 
 verify
@@ -61,5 +60,5 @@ tee <<EOF >/dev/null $HOME/validator.json
 }
 EOF
 
-echo $KEYRING_PASSWORD | crowdswapd tx staking create-validator $HOME/validator.json --from validator --chain-id crowdswap-1 --fees 20crowdhub --yes
-echo $KEYRING_PASSWORD | crowdswapd tx validator register-validator $BROADCASTER_ADDRESS --from validator --chain-id crowdswap-1 --fees 20crowdhub --yes
+echo "$KEYRING_PASSWORD" | crowdswapd tx staking create-validator "$HOME/validator.json" --from validator --chain-id crowdswap-1 --fees 20crowdhub --yes
+echo "$KEYRING_PASSWORD" | crowdswapd tx validator register-validator "$BROADCASTER_ADDRESS" --from validator --chain-id crowdswap-1 --fees 20crowdhub --yes

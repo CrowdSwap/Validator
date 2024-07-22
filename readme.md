@@ -77,7 +77,7 @@ sudo systemctl restart vald
 
 ## Step 7: Contact us to verify the process
 During this step, please provide detailed information about your setup process. Upon review, we will send you the requirements for staking and registering your validator.
-
+Please provide us your `BROADCASTER_ADDRESS` and `VALIDATOR_OPERATOR_ADDRESS` which exist at the end of `$HOME/.profile` file as result of `Step 4`.
 Email: support@crowdswap.org
 
 ## Step 8: Add validator
