@@ -65,7 +65,7 @@ parse_params() {
     fi
 
     if [ -z "${tofnd_version}" ]; then
-        tofnd_version=$(curl -s "https://api.github.com/repos/axelarnetwork/tofnd/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')
+        tofnd_version=$(curl -s "https://api.github.com/repos/CrowdSwap/Validator/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')
     fi
 
     # check required params and arguments
@@ -147,8 +147,8 @@ download_dependencies() {
     msg "downloading tofnd binary $tofnd_binary"
     if [[ ! -f "${tofnd_binary_path}" ]]; then
         local tofnd_binary_url
-        tofnd_binary_url="https://axelar-releases.s3.us-east-2.amazonaws.com/tofnd/${tofnd_version}/${tofnd_binary}"
-        curl -s --fail "${tofnd_binary_url}" -o "${tofnd_binary_path}" && chmod +x "${tofnd_binary_path}"
+        tofnd_binary_url="https://github.com/CrowdSwap/Validator/releases/download/${tofnd_version}/${tofnd_binary}"
+        curl -sL --fail "${tofnd_binary_url}" -o "${tofnd_binary_path}" && chmod +x "${tofnd_binary_path}"
 
     else
         msg "binary already downloaded"
@@ -181,20 +181,6 @@ post_run_message() {
     msg
     msg "SUCCESS"
     msg
-    msg "To become a validator get some AXL tokens from the faucet (testnet only) and stake them"
-    msg
-    msg "To follow tofnd execution, run 'tail -f ${logs_directory}/tofnd.log'"
-    msg "To follow vald execution, run 'tail -f ${logs_directory}/vald.log'"
-    # shellcheck disable=SC2016
-    msg 'To stop tofnd, run "pkill -f tofnd"'
-    # shellcheck disable=SC2016
-    msg 'To stop vald, run "pkill -9 -f vald"'
-    msg
-    msg "CHECK the logs to verify that the processes are running as expected"
-    msg
-    msg "BACKUP and DELETE the following mnemonics:"
-    msg "Tofnd mnemonic: ${tofnd_directory}/import"
-    msg "Broadcaster mnemonic: ${root_directory}/broadcaster.txt"
 }
 
 parse_params "$@"
