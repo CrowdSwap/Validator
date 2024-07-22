@@ -43,7 +43,10 @@ tofnd -m create
 
 ```bash
 cat $HOME/.tofnd/export
+```
+Keep this mnemonic in a safe place 
 
+```bash
 rm $HOME/.tofnd/export
 
 ```
