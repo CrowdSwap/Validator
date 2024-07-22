@@ -26,7 +26,7 @@ EOF
 
 parse_params() {
     # default values of variables set from params
-    crowdswap_version="1.0.1"
+    crowdswap_version=""
     tofnd_version=""
     chain_id="crowdswap-1"
     root_directory="$HOME/.crowdswap"
