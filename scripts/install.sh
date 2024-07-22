@@ -127,7 +127,7 @@ download_dependencies() {
         local crowdswapd_binary_url
         crowdswapd_binary_url="https://github.com/CrowdSwap/Validator/releases/download/${crowdswap_version}/${crowdswapd_artifact}"
 
-        curl -s --fail "${crowdswapd_binary_url}" -o "${crowdswapd_artifact}" 
+        curl -sL --fail "${crowdswapd_binary_url}" -o "${crowdswapd_artifact}" 
 
         tar -xzvf "${crowdswapd_artifact}" -C "."
         mv "${crowdswapd_binary}" "${crowdswapd_binary_path}"
