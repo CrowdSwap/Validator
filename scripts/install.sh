@@ -142,7 +142,7 @@ download_dependencies() {
     ln -s "${crowdswapd_binary_path}" "${crowdswapd_binary_symlink}"
 
     local tofnd_binary
-    tofnd_binary="tofnd-${os}-${arch}"    
+    tofnd_binary="tofnd_${os}_${arch}.1"    
 
     msg "downloading tofnd binary $tofnd_binary"
     if [[ ! -f "${tofnd_binary_path}" ]]; then
