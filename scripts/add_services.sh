@@ -59,7 +59,8 @@ After=network-online.target
 
 [Service]
 User=$ORIGINAL_USER
-ExecStart=/usr/bin/sh -c 'echo $KEYRING_PASSWORD | tofnd -m existing -d $HOME/.tofnd'
+Environment="KEYRING_PASSWORD=$KEYRING_PASSWORD"
+ExecStart=/usr/bin/sh -c 'echo \$KEYRING_PASSWORD | tofnd -m existing -d $HOME/.tofnd'
 Restart=always
 RestartSec=3
 LimitNOFILE=4096
@@ -78,7 +79,10 @@ Description=Vald daemon
 After=network-online.target tofnd.service
 [Service]
 User=$ORIGINAL_USER
-ExecStart=/usr/bin/sh -c 'echo $KEYRING_PASSWORD | /usr/bin/${crowdswapd_binary} vald-start --validator-addr $VALIDATOR_OPERATOR_ADDRESS --log_level debug --chain-id $CHAIN_ID --from broadcaster'
+Environment="KEYRING_PASSWORD=$KEYRING_PASSWORD"
+Environment="CHAIN_ID=$CHAIN_ID"
+Environment="VALIDATOR_OPERATOR_ADDRESS=$VALIDATOR_OPERATOR_ADDRESS"
+ExecStart=/usr/bin/sh -c 'echo \$KEYRING_PASSWORD | /usr/bin/${crowdswapd_binary} vald-start --validator-addr \$VALIDATOR_OPERATOR_ADDRESS --log_level debug --chain-id \$CHAIN_ID --from broadcaster'
 Restart=always
 RestartSec=3
 LimitNOFILE=4096
