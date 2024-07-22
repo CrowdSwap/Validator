@@ -41,6 +41,13 @@ tofnd -m create
 
 ```
 
+```bash
+cat $HOME/.tofnd/export
+
+rm $HOME/.tofnd/export
+
+```
+
 ## Step 4: Set Environment Variables
 
 Run the script below and fill in the fields based on your own information:
