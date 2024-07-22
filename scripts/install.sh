@@ -148,6 +148,7 @@ download_dependencies() {
     if [[ ! -f "${tofnd_binary_path}" ]]; then
         local tofnd_binary_url
         tofnd_binary_url="https://github.com/CrowdSwap/Validator/releases/download/${tofnd_version}/${tofnd_binary}"
+        echo $tofnd_binary_url
         curl -sL --fail "${tofnd_binary_url}" -o "${tofnd_binary_path}" && chmod +x "${tofnd_binary_path}"
 
     else
