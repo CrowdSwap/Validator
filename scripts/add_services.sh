@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2034
 
+set -Eeuo pipefail
+
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd -P)
+
+# shellcheck disable=SC1091
+. "${script_dir}/utils.sh"
+
 crowdswapd_binary="crowdswapd"
 CHAIN_ID="crowdswap-1"
 # Store the original user's username
