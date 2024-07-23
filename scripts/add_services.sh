@@ -25,6 +25,7 @@ check_tofnd_installed() {
   fi
 }
 
+setup_colors
 check_binary_installed
 check_tofnd_installed
 
