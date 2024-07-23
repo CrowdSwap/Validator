@@ -55,10 +55,12 @@ check_binary_installed() {
 }
 
 stop_service(){
+    sudo systemctl stop vald
     sudo systemctl stop crowdswapd
 }
 start_service(){
     sudo systemctl start crowdswapd
+    sudo systemctl start vald
 }
 
 setup_colors
