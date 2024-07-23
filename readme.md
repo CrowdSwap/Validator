@@ -84,6 +84,11 @@ sudo systemctl restart crowdswapd
 sudo systemctl restart tofnd
 sudo systemctl restart vald
 ```
+Check your node with this code:
+
+```bash
+sudo journalctl -u crowdswapd -f
+```
 
 ## Step 7: Contact us to verify the process
 During this step, please provide detailed information about your setup process. Upon review, we will send you the requirements for staking and registering your validator.
