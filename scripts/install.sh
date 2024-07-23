@@ -26,7 +26,7 @@ EOF
 
 parse_params() {
     # default values of variables set from params
-    crowdswap_version="1.0.1"
+    crowdswap_version=""
     tofnd_version=""
     chain_id="crowdswap-1"
     root_directory="$HOME/.crowdswap"
@@ -65,7 +65,7 @@ parse_params() {
     fi
 
     if [ -z "${tofnd_version}" ]; then
-        tofnd_version=$(curl -s "https://api.github.com/repos/axelarnetwork/tofnd/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')
+        tofnd_version=$(curl -s "https://api.github.com/repos/CrowdSwap/Validator/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')
     fi
 
     # check required params and arguments
@@ -76,7 +76,7 @@ parse_params() {
     bin_directory="$root_directory/bin"
     logs_directory="$root_directory/logs"
     config_directory="$root_directory/config"
-    resources="${git_root}/resources"
+    resources="${git_root}/configuration"
     crowdswapd_binary="crowdswapd"
     crowdswapd_binary_signature_path="$bin_directory/crowdswapd-${crowdswap_version}.asc"
     crowdswapd_binary_path="$bin_directory/crowdswapd-${crowdswap_version}"
@@ -121,16 +121,17 @@ download_dependencies() {
     msg "\ndownloading required dependencies"
     
     # Define the artifact name to download
-    crowdswapd_artifact="crosschain_linux_amd64.tar.gz"
+    crowdswapd_artifact="crowdswap_linux_amd64.tar.gz"
     msg "downloading $crowdswapd_binary binary $crowdswap_version"
     if [[ ! -f "${crowdswapd_binary_path}" ]]; then
         local crowdswapd_binary_url
         crowdswapd_binary_url="https://github.com/CrowdSwap/Validator/releases/download/${crowdswap_version}/${crowdswapd_artifact}"
 
-        curl -s --fail "${crowdswapd_binary_url}" -o "${crowdswapd_artifact}" && chmod +x "${crowdswapd_binary_path}"
+        curl -sL --fail "${crowdswapd_binary_url}" -o "${crowdswapd_artifact}" 
 
         tar -xzvf "${crowdswapd_artifact}" -C "."
         mv "${crowdswapd_binary}" "${crowdswapd_binary_path}"
+        chmod +x "${crowdswapd_binary_path}"
         rm -f "${crowdswapd_artifact}"
     else
         msg "binary already downloaded"
@@ -141,13 +142,14 @@ download_dependencies() {
     ln -s "${crowdswapd_binary_path}" "${crowdswapd_binary_symlink}"
 
     local tofnd_binary
-    tofnd_binary="tofnd-${os}-${arch}-${tofnd_version}"    
+    tofnd_binary="tofnd_${os}_${arch}.1"    
 
     msg "downloading tofnd binary $tofnd_binary"
     if [[ ! -f "${tofnd_binary_path}" ]]; then
         local tofnd_binary_url
-        tofnd_binary_url="https://axelar-releases.s3.us-east-2.amazonaws.com/tofnd/${tofnd_version}/${tofnd_binary}"
-        curl -s --fail "${tofnd_binary_url}" -o "${tofnd_binary_path}" && chmod +x "${tofnd_binary_path}"
+        tofnd_binary_url="https://github.com/CrowdSwap/Validator/releases/download/${tofnd_version}/${tofnd_binary}"
+        echo $tofnd_binary_url
+        curl -sL --fail "${tofnd_binary_url}" -o "${tofnd_binary_path}" && chmod +x "${tofnd_binary_path}"
 
     else
         msg "binary already downloaded"
@@ -156,6 +158,11 @@ download_dependencies() {
     msg "symlinking tofnd binary"
     rm -f "${tofnd_binary_symlink}"
     ln -s "${tofnd_binary_path}" "${tofnd_binary_symlink}"
+}
+
+addlinks() { 
+    sudo ln -s $crowdswapd_binary_symlink /usr/local/bin/crowdswapd 
+    sudo ln -s $tofnd_binary_symlink /usr/local/bin/tofnd
 }
 
 check_environment() {
@@ -175,20 +182,6 @@ post_run_message() {
     msg
     msg "SUCCESS"
     msg
-    msg "To become a validator get some AXL tokens from the faucet (testnet only) and stake them"
-    msg
-    msg "To follow tofnd execution, run 'tail -f ${logs_directory}/tofnd.log'"
-    msg "To follow vald execution, run 'tail -f ${logs_directory}/vald.log'"
-    # shellcheck disable=SC2016
-    msg 'To stop tofnd, run "pkill -f tofnd"'
-    # shellcheck disable=SC2016
-    msg 'To stop vald, run "pkill -9 -f vald"'
-    msg
-    msg "CHECK the logs to verify that the processes are running as expected"
-    msg
-    msg "BACKUP and DELETE the following mnemonics:"
-    msg "Tofnd mnemonic: ${tofnd_directory}/import"
-    msg "Broadcaster mnemonic: ${root_directory}/broadcaster.txt"
 }
 
 parse_params "$@"
@@ -214,5 +207,9 @@ create_directories
 copy_configuration_files
 
 download_dependencies # download dependencies specific to mode
+
+ask_for_sudo
+
+addlinks
 
 post_run_message # print message post run
