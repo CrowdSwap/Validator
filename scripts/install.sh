@@ -161,6 +161,10 @@ download_dependencies() {
 }
 
 addlinks() { 
+    # Remove existing symlinks if they exist
+    [ -L /usr/local/bin/crowdswapd ] && sudo rm /usr/local/bin/crowdswapd
+    [ -L /usr/local/bin/tofnd ] && sudo rm /usr/local/bin/tofnd
+    
     sudo ln -s $crowdswapd_binary_symlink /usr/local/bin/crowdswapd 
     sudo ln -s $tofnd_binary_symlink /usr/local/bin/tofnd
 }
