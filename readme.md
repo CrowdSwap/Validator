@@ -17,7 +17,7 @@ cd Validator/scripts
 If the files inside scripts directory are not executable, you can make them executable with:
 
 ```bash
-chmod +x install.sh add_services.sh add_validator.sh update.sh
+chmod +x *.sh
 
 ```
 
