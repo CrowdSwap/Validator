@@ -61,7 +61,7 @@ start_service(){
     sudo systemctl start crowdswapd
 }
 
-
+setup_colors
 check_sudo_group
 ask_for_sudo
 
