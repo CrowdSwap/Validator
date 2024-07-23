@@ -164,7 +164,7 @@ addlinks() {
     # Remove existing symlinks if they exist
     [ -L /usr/local/bin/crowdswapd ] && sudo rm /usr/local/bin/crowdswapd
     [ -L /usr/local/bin/tofnd ] && sudo rm /usr/local/bin/tofnd
-    
+
     sudo ln -s $crowdswapd_binary_symlink /usr/local/bin/crowdswapd 
     sudo ln -s $tofnd_binary_symlink /usr/local/bin/tofnd
 }
@@ -191,14 +191,16 @@ post_run_message() {
 parse_params "$@"
 setup_colors
 
+check_sudo_group
 check_dependency
 check_environment
+
+print_crowdhub
 
 # Print params
 msg "${RED}Read parameters:${NOFORMAT}"
 msg "- root-directory: ${root_directory}"
 msg "- script_dir: ${script_dir}"
-msg "- arguments: ${args[*]-}"
 msg "\n"
 
 

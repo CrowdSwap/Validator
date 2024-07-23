@@ -105,7 +105,13 @@ ask_for_sudo() {
 
     echo "Enter $USER password if requested"
     sudo echo "======================================="
-    sudo echo "${GREEN}Running in sudo mode${NOFORMAT}"
+    sudo echo -e "${GREEN}Running in sudo mode${NOFORMAT}"
+}
+
+check_sudo_group() {    
+    if ! groups $USER | grep &>/dev/null "\bsudo\b"; then
+        die "User $USER must be a member of sudo group."
+    fi
 }
 
 check_dependency() {

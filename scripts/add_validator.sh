@@ -61,4 +61,3 @@ tee <<EOF >/dev/null $HOME/validator.json
 EOF
 
 echo "$KEYRING_PASSWORD" | crowdswapd tx staking create-validator "$HOME/validator.json" --from validator --chain-id crowdswap-1 --fees 20crowdhub --yes
-echo "$KEYRING_PASSWORD" | crowdswapd tx validator register-validator "$BROADCASTER_ADDRESS" --from validator --chain-id crowdswap-1 --fees 20crowdhub --yes

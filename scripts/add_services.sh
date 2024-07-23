@@ -25,6 +25,10 @@ if ! env | grep -q '^KEYRING_PASSWORD='; then
   die "Error: KEYRING_PASSWORD not found as environment variable."
 fi
 
+if ! env | grep -q '^TOFND_PASSWORD='; then
+  die "Error: TOFND_PASSWORD not found as environment variable."
+fi
+
 if ! env | grep -q '^VALIDATOR_OPERATOR_ADDRESS='; then
   die "Error: VALIDATOR_OPERATOR_ADDRESS not found as environment variable."
 fi
@@ -59,8 +63,8 @@ After=network-online.target
 
 [Service]
 User=$ORIGINAL_USER
-Environment="KEYRING_PASSWORD=$KEYRING_PASSWORD"
-ExecStart=/usr/bin/sh -c 'echo \$KEYRING_PASSWORD | tofnd -m existing -d $HOME/.tofnd'
+Environment="TOFND_PASSWORD=$TOFND_PASSWORD"
+ExecStart=/usr/bin/sh -c 'echo \$TOFND_PASSWORD | tofnd -m existing -d $HOME/.tofnd'
 Restart=always
 RestartSec=3
 LimitNOFILE=4096

@@ -62,6 +62,7 @@ echo export BROADCASTER_ADDRESS=$(crowdswapd keys show broadcaster | grep addres
 
 # It's recommended to manually edit the file and add your keyring password
 echo export KEYRING_PASSWORD=PUT_YOUR_KEYRING_PASSWORD_HERE >> $HOME/.profile
+echo export TOFND_PASSWORD=PUT_YOUR_TOFND_PASSWORD_HERE >> $HOME/.profile
 
 source $HOME/.profile
 
@@ -101,7 +102,9 @@ Finally to register your validator run following script:
 
 ```bash
 ./add_validator.sh
-
+```
+```bash
+crowdswapd tx validator register-validator "$BROADCASTER_ADDRESS" --from validator --chain-id crowdswap-1 --fees 20crowdhub --yes
 ```
 
 ### Summary of Instructions
