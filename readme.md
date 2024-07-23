@@ -10,7 +10,7 @@ Run all scripts as a non-root user who has sudo permissions. None of the scripts
 First, clone the this repository:
 
 ```sh
-git clone https://github.com/CrowdSwap/Validator
+git clone https://github.com/CrowdSwap/Validator.git
 cd Validator/scripts
 ```
 
