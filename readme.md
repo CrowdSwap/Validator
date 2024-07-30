@@ -77,7 +77,22 @@ Run the `add_services.sh` script without sudo:
 
 ```
 
-## Step 6: Start Your Services
+## Step 6: Fill RPC URLS
+
+```bash
+vim ~/.crowdswap/config/config.toml
+```
+scroll down and fill the urls. For example:
+
+```bash
+[[native_bridge_evm]]
+name = "137"
+rpc_addr = "YOUR_RPC_URL"
+start-with-bridge = true
+finality_override = "confirmation"
+```
+
+## Step 7: Start Your Services
 Finally, start your services with the following commands:
 
 ```bash
@@ -91,12 +106,12 @@ Check your node with this code:
 sudo journalctl -u crowdswapd -f
 ```
 
-## Step 7: Contact us to verify the process
+## Step 8: Contact us to verify the process
 During this step, please provide detailed information about your setup process. Upon review, we will send you the requirements for staking and registering your validator.
 Please provide us your `BROADCASTER_ADDRESS` and `VALIDATOR_OPERATOR_ADDRESS` which exist at the end of `$HOME/.profile` file as result of `Step 4`.
 Email: support@crowdswap.org
 
-## Step 8: Add validator
+## Step 9: Add validator
 
 Finally to register your validator run following script:
 

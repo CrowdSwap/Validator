@@ -480,3 +480,15 @@ max_open_connections = 3
 
 # Instrumentation namespace
 namespace = "cometbft"
+
+[[native_bridge_evm]]
+name = "137"
+rpc_addr = ""
+start-with-bridge = true
+finality_override = "confirmation"
+ 
+[[native_bridge_evm]]
+name = "1130"
+rpc_addr = ""                            
+start-with-bridge = true
+finality_override = "confirmation"
