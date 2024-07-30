@@ -3,7 +3,10 @@
 
 ## General Information
 
-Run all scripts as a non-root user who has sudo permissions. None of the scripts should be triggered with sudo directly. The `add_services.sh` script will prompt for your password if necessary.
+Run all scripts as a non-root user who has sudo permissions. None of the scripts should be triggered with sudo directly. The scripts will prompt for your password if necessary. 
+
+
+To ensure proper functionality, it is essential that port `26656` on your machine is accessible from external networks. If you are utilizing a firewall, please take the necessary steps to unblock this port.
 
 ## Step 1: Clone the Repository
 
@@ -17,7 +20,7 @@ cd Validator/scripts
 If the files inside scripts directory are not executable, you can make them executable with:
 
 ```bash
-chmod +x install.sh add_services.sh add_validator.sh update.sh
+chmod +x *.sh
 
 ```
 
@@ -130,7 +133,6 @@ crowdswapd tx network register-chain-maintainer "137","1130" --from broadcaster 
 1. **General Information**:
     - Use a non-root user with sudo permissions.
     - Avoid running scripts with sudo directly.
-    - `add_services.sh` will prompt for your password if needed.
 
 2. **Install Binaries**:
     - Run `install.sh` to install binaries and configure basic settings.
@@ -138,6 +140,7 @@ crowdswapd tx network register-chain-maintainer "137","1130" --from broadcaster 
 3. **Generate Keys**:
     - Use `crowdswapd` and `tofnd` commands to generate keys.
     - Store `KEYRING_PASSWORD` and account mnemonics securely.
+    - Store `TOFND_PASSWORD` and account mnemonics securely.
 
 4. **Set Environment Variables**:
     - Use provided script to set and export environment variables.
