@@ -83,14 +83,21 @@ Run the `add_services.sh` script without sudo:
 ## Step 6: Fill RPC URLS
 
 ```bash
-vim ~/.crowdswap/config/config.toml
+nano ~/.crowdswap/config/config.toml
 ```
 scroll down and fill the urls. For example:
 
 ```bash
 [[native_bridge_evm]]
 name = "137"
-rpc_addr = "YOUR_RPC_URL"
+rpc_addr = "https://polygon-rpc.com/"
+start-with-bridge = true
+finality_override = "confirmation"
+
+
+[[native_bridge_evm]]
+name = "1130"
+rpc_addr = "https://dmc.mydefichain.com/mainnet"
 start-with-bridge = true
 finality_override = "confirmation"
 ```
