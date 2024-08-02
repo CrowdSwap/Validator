@@ -1,7 +1,7 @@
 {
   "app_name": "crowdswapd",
   "app_version": "",
-  "genesis_time": "2024-07-30T08:02:51.50020917Z",
+  "genesis_time": "2024-08-02T10:49:15.13298887Z",
   "chain_id": "crowdswap-1",
   "initial_height": 1,
   "app_hash": null,
@@ -17,14 +17,14 @@
       "accounts": [
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "crowd1hqdfdcpmxn22f6445xqkzn4c0aehpv820nk496",
+          "address": "crowd1m2fzvftq87tzvqq5ema9zx3fh43f7409dfqjcz",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "crowd1hqfes0qvthmhn858ettuh745zfpeyjtlye3a36",
+          "address": "crowd1m2h0gkvan3p702p8g7chl2z7wkejrlcyez0dcj",
           "pub_key": null,
           "account_number": "1",
           "sequence": "0"
@@ -41,20 +41,20 @@
       },
       "balances": [
         {
-          "address": "crowd1hqfes0qvthmhn858ettuh745zfpeyjtlye3a36",
+          "address": "crowd1m2fzvftq87tzvqq5ema9zx3fh43f7409dfqjcz",
           "coins": [
             {
               "denom": "crowdhub",
-              "amount": "2000000"
+              "amount": "100000000000000000"
             }
           ]
         },
         {
-          "address": "crowd1hqdfdcpmxn22f6445xqkzn4c0aehpv820nk496",
+          "address": "crowd1m2h0gkvan3p702p8g7chl2z7wkejrlcyez0dcj",
           "coins": [
             {
               "denom": "crowdhub",
-              "amount": "100000000000000"
+              "amount": "2000000"
             }
           ]
         }
@@ -62,7 +62,7 @@
       "supply": [
         {
           "denom": "crowdhub",
-          "amount": "100000002000000"
+          "amount": "100000000002000000"
         }
       ],
       "denom_metadata": [],
@@ -131,10 +131,10 @@
                 },
                 "min_self_delegation": "1",
                 "delegator_address": "",
-                "validator_address": "crowdvaloper1hqfes0qvthmhn858ettuh745zfpeyjtlz6gcmq",
+                "validator_address": "crowdvaloper1m2h0gkvan3p702p8g7chl2z7wkejrlcylpkgjg",
                 "pubkey": {
                   "@type": "/cosmos.crypto.ed25519.PubKey",
-                  "key": "xUpcA0HQ1V3dHP/Gxv5vQKvmta/qY42nVrCFAynxq20="
+                  "key": "Cr57raxvkve+pphhZP6uY7G+dvT/IgTv5fKubBHkTM8="
                 },
                 "value": {
                   "denom": "crowdhub",
@@ -142,7 +142,7 @@
                 }
               }
             ],
-            "memo": "af8273ac2d0e8f9a5b2c1ed2aa3d0a3819fb0016@5.75.169.164:26656",
+            "memo": "ceda95a292041e8de7342e26fb87a550c1d4158b@5.75.169.164:26656",
             "timeout_height": "0",
             "extension_options": [],
             "non_critical_extension_options": []
@@ -152,7 +152,7 @@
               {
                 "public_key": {
                   "@type": "/cosmos.crypto.secp256k1.PubKey",
-                  "key": "AzwJSUd+RFaoV1GnGlwrRcZZR811Qphcwdk9CjGfKk6M"
+                  "key": "AtCYXUqfGwWBibcqRLSzOqL/T0ElazWBIMFqZR5tmOY1"
                 },
                 "mode_info": {
                   "single": {
@@ -171,7 +171,7 @@
             "tip": null
           },
           "signatures": [
-            "EWXODOuWM7fTRY/KUaOVnLkHPa/PKFl1061SWNov4Ydytda51QHYdSvCtBDI11bLJmtTwjhvzOnfN5pFg0EdEg=="
+            "XD7JBXfdvhh0QN1wsY8cBA1WxLzBRgvzHu853CURVtA6i6iZIC/VFfmqQ0y1zGPb1KxJmMMYsOuVZ5YdV7x/2Q=="
           ]
         }
       ]
@@ -288,7 +288,7 @@
       "governance_key": null,
       "gov_accounts": [
         {
-          "address": "crowd1hqdfdcpmxn22f6445xqkzn4c0aehpv820nk496",
+          "address": "crowd1m2fzvftq87tzvqq5ema9zx3fh43f7409dfqjcz",
           "role": "ROLE_ACCESS_CONTROL"
         }
       ]

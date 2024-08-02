@@ -497,3 +497,11 @@ name = "1130"
 rpc_addr = ""                            
 start-with-bridge = true
 finality_override = "confirmation"
+
+##### message broadcasting options #####
+[broadcast]
+
+broadcaster-account = "broadcaster"
+gas-adjustment = 1.0
+max-retries = 10
+min-timeout = "4s"
