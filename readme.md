@@ -129,10 +129,10 @@ Finally to register your validator run following script:
 ./add_validator.sh
 ```
 ```bash
-crowdswapd tx validator register-validator "$BROADCASTER_ADDRESS" --from validator --chain-id crowdswap-1 --fees 20crowdhub
+crowdswapd tx validator register-validator "$BROADCASTER_ADDRESS" --from validator --chain-id crowdswap-1 --fees 2crowdhub
 ```
 ```bash
-crowdswapd tx network register-chain-maintainer "137","1130" --from broadcaster --chain-id crowdswap-1 --fees 20crowdhub
+crowdswapd tx network register-chain-maintainer "137","1130" --from broadcaster --chain-id crowdswap-1 --fees 2crowdhub
 ```
 
 ### Summary of Instructions
