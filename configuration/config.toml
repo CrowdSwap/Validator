@@ -498,6 +498,30 @@ rpc_addr = ""
 start-with-bridge = true
 finality_override = "confirmation"
 
+[[native_bridge_evm]]
+name = "42161"
+rpc_addr = ""
+start-with-bridge = true
+finality_override = "confirmation"
+ 
+[[native_bridge_evm]]
+name = "56"
+rpc_addr = ""
+start-with-bridge = true
+finality_override = "confirmation"
+ 
+[[native_bridge_evm]]
+name = "1"
+rpc_addr = ""
+start-with-bridge = true
+finality_override = "confirmation"
+ 
+[[native_bridge_evm]]
+name = "10"
+rpc_addr = ""
+start-with-bridge = true
+finality_override = "confirmation"
+
 ##### message broadcasting options #####
 [broadcast]
 
