@@ -67,8 +67,8 @@ setup_colors
 check_sudo_group
 ask_for_sudo
 
-# stop_service
+stop_service
 check_binary_installed
 setPath
 download_latest
-# start_service
+start_service
