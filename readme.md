@@ -100,6 +100,34 @@ name = "1130"
 rpc_addr = "https://dmc.mydefichain.com/mainnet"
 start-with-bridge = true
 finality_override = "confirmation"
+
+
+[[native_bridge_evm]]
+name = "42161"
+rpc_addr = ""
+start-with-bridge = true
+finality_override = "confirmation"
+ 
+
+[[native_bridge_evm]]
+name = "56"
+rpc_addr = ""
+start-with-bridge = true
+finality_override = "confirmation"
+
+
+[[native_bridge_evm]]
+name = "1"
+rpc_addr = ""
+start-with-bridge = true
+finality_override = "confirmation"
+
+ 
+[[native_bridge_evm]]
+name = "10"
+rpc_addr = ""
+start-with-bridge = true
+finality_override = "confirmation"
 ```
 
 ## Step 7: Start Your Services
@@ -132,7 +160,7 @@ Finally to register your validator run following script:
 crowdswapd tx validator register-validator "$BROADCASTER_ADDRESS" --from validator --chain-id crowdswap-1 --fees 2crowdhub
 ```
 ```bash
-crowdswapd tx network register-chain-maintainer "137","1130" --from broadcaster --chain-id crowdswap-1 --fees 2crowdhub
+crowdswapd tx network register-chain-maintainer "1","10","56","137","1130","42161" --from broadcaster --chain-id crowdswap-1 --fees 2crowdhub
 ```
 
 ### Summary of Instructions
